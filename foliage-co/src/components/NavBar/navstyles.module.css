@@ -1,0 +1,116 @@
+/* the whole nav bar has 3 column when in desktop view */
+.navbar__wrapper{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* logo take one of the column  */
+.logo__container{
+    grid-column: 1/2;
+}
+
+.logo__container > a {
+    text-decoration: none;
+}
+
+
+.navbar__list--middle, .navbar__list--end {
+    list-style: none;
+    display: flex;
+    gap: 2em; 
+    margin: auto 0 auto 0;
+    padding: 0;
+}
+
+.navbar__list--middle{
+    grid-column: 2/3;
+    justify-content: space-around;
+}
+.navbar__list--end{
+    grid-column: 3/4;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar__list--middle > li, .navbar__list--end> li {
+    font-family: 'futura-pt', 'sans-serif';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    display: flex;
+    align-content: stretch;
+}
+.navbar__list--middle > li > a , .navbar__list--end> li > a {
+    text-decoration: none ;
+    color: #3A443f;
+    padding: 0.25em;
+    border-radius: 30%;
+}
+
+.navbar__list--middle > li > a:visited{
+    color: #3A443f; 
+}
+
+.navbar__list--middle > li > a:hover{
+    color: #418267; 
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+}
+
+.navbar__list--end> li > a:visited{
+    color: #3A443f; 
+}
+
+.navbar__list--end> li> a:hover {
+    color: #fff;
+    background-color: #418267;
+}
+
+.hamburger{
+    display: none;
+}
+
+/* phone size */
+@media only screen and (max-width: 700px) {
+    .navbar__wrapper{
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /*  this maintain the middle part styles like flex column and such */
+    .navbar__list--middle{
+        background-color: #808B85;
+        position: absolute;
+        top: 15vh; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+    }
+    
+    /* here hide or show the navbar__list--middle */
+    .navbar__list--show{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2em ;
+    }
+
+    .navbar__list--hide{
+        display: none;
+    }
+
+    .navbar__list--end{
+        gap: 0.5em;
+    }
+
+    .navbar__list--end > li{
+        display: inline;
+    }
+
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    }
+}

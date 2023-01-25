@@ -1,0 +1,27 @@
+.logo__wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    align-items: center;
+}
+.logo__word--green{
+    color: #418267; 
+    font-weight: 600;
+    font-family: 'garamond-atf-micro', 'serif';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.logo__word--black{
+    color: #3A443f; 
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 1.5em;
+    font-style: normal;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+
+}
