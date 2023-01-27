@@ -15,7 +15,18 @@
     align-items: center;
 }
 
-.form-input__container > label{
+.form-input__container--row{
+    flex-direction: row;
+}
+
+.form-input__container--row > label{
+    font-family: 'futura-pt', 'sans-serif';
+    padding-left: 4px;
+    font-size: 1.2em;
+}
+
+
+.form-input__container > label {
     font-family: 'garamond-atf-micro', 'serif';
     font-size: 1.2em;
 }
@@ -34,6 +45,22 @@
     border: #3A443f 2px solid ;
 }
 
+.form-button__wrapper > input[type=submit]{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.3em ;
+    padding: 6px 12px 6px 12px; 
+    background-color: #3A443f;
+    color: #fff;
+    border: #3A443f 3px solid; 
+    border-radius: 5px;
+}
+
+.form-button__wrapper > input[type=submit]:hover{
+    background-color: #418267;
+    color: #fff;
+    border: #418267 3px solid;  
+}
+
 .form__register{
     font-family: 'garamond-atf-micro', 'serif'; 
     font-size: 1em;
@@ -46,4 +73,28 @@
 }
 .form__register > a:hover{
     text-decoration: underline;
+}
+
+/* snackbar styles */
+.snackbar__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin:5vh 10vw 0 10vw;
+}
+
+.snackbar__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #90EE90; 
+    padding: 4px;
+    border-radius: 3px;
+
+}
+
+.snackbar__message{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1em;
 }
