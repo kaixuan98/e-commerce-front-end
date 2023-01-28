@@ -11,6 +11,21 @@ const AuthProvider = ( {children}) => {
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
 
+    const handleRegister = (form) => {
+        fetch('http://localhost:8080/users/register', {  
+            method: 'POST', 
+            mode: 'cors', 
+            body: JSON.stringify(form),
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => res.json())
+        .then(data => {
+            setToken(data.token);
+            setUser(data.user);
+            navigate('/profile');
+        });
+    }
+
     const handleLogin = (form) => {
         fetch('http://localhost:8080/users/login', {  
             method: 'POST', 
@@ -58,6 +73,7 @@ const AuthProvider = ( {children}) => {
         onLogin: handleLogin,
         onLogout: handleLogout,
         onAllLogout: handleAllLogout,
+        onRegister: handleRegister,
         useAuth, 
     }
     return (

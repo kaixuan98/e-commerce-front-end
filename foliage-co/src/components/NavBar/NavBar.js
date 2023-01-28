@@ -24,6 +24,7 @@ export const NavBar = () => {
 
             <ul className={Styles['navbar__list--end']}>
                 <li><Link to="/login"><MdOutlinePermIdentity size={24}/></Link></li>
+                {/* cart page can be access by public  */}
                 <li><Link to="/profile"><MdOutlineShoppingBag size={24}/></Link></li>
                 <li className={Styles['hamburger']} onClick={()=> setToggle(!isToggle)}> {isToggle? <MdClose size={24}/>:<MdMenu size={24}/> } </li>
             </ul>
