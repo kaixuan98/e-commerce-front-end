@@ -1,0 +1,26 @@
+.button{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.3em ;
+    padding: 6px 12px 6px 12px; 
+    background-color: #418267;
+    color: #fff;
+    border: #418267 2px solid; 
+    border-radius: 5px;
+}
+
+.button:hover{
+    background-color: #3A443f;
+    border: #3A443f solid 2px; 
+}
+
+.button--outline{
+    border: #418267 solid 2px; 
+    background-color: #fff;
+    color: #418267;
+}
+
+.button--outline:hover{
+    background-color: #418267;
+    color: #fff;
+    border: #418267 solid 2px; 
+}

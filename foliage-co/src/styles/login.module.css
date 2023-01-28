@@ -1,7 +1,7 @@
 .form{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     gap: 1em;
     justify-content: center;
     margin:5vh 10vw 0 10vw;
@@ -13,6 +13,7 @@
     gap: 8px;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .form-input__container--row{
@@ -49,16 +50,15 @@
     font-family: 'futura-pt', 'sans-serif';
     font-size: 1.3em ;
     padding: 6px 12px 6px 12px; 
-    background-color: #3A443f;
+    background-color: #418267;
     color: #fff;
-    border: #3A443f 3px solid; 
+    border: #418267 3px solid; 
     border-radius: 5px;
 }
 
 .form-button__wrapper > input[type=submit]:hover{
-    background-color: #418267;
-    color: #fff;
-    border: #418267 3px solid;  
+    background-color: #3A443f;
+    border: #3A443f 3px solid;  
 }
 
 .form__register{
