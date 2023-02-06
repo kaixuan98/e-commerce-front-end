@@ -1,0 +1,51 @@
+.page-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section__container{
+    display:flex;
+    flex-direction: column;
+}
+
+.profile-section__container > h2 {
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 2em;
+}
+
+.profile-section__btn-container{
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* upload product section */
+.product-section__container{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-section__container > h2 {
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 2em;
+}
+
+
+.product-section__form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form__wrapper{
+    padding : 0 3vw 0 3vw;
+    grid-column: 1/2;
+}
+.product-section__preview{
+    border: solid 2px black;
+    border-radius: 5px;
+    background-color: #F8FAF9;
+    padding: 1em;
+    width: 100%;
+    grid-column: 2/3;
+}

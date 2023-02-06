@@ -37,7 +37,11 @@ const AuthProvider = ( {children}) => {
         .then(data => {
             setToken(data.token);
             setUser(data.user);
-            navigate('/profile');
+            if(data.user.name === 'user123' && data.user._id === '63c50526ab5261b5d264dfc6'){
+                navigate('/admin');
+            }else{
+                navigate('/profile');
+            }
         });
     }
 

@@ -9,6 +9,7 @@ import Register from './routes/Register';
 import Profile from './routes/Profile';
 import AuthProvider from './hooks/AuthProvider';
 import ProtectedRoute from './hooks/ProtectedRoute';
+import Admin from './routes/Admin';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={<Register/>}></Route> 
           {/* Protected Path  */}
           <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route> 
+          <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}></Route> 
         </Routes>
       </div>
     </AuthProvider>
