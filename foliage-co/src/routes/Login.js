@@ -35,11 +35,6 @@ const Login = () => {
   return (
     <>
       <NavBar/>
-      {/* <div className={Style['snackbar__wrapper']}>
-        <div className={Style['snackbar__container']}>
-            <p className={Style['snackbar__message']}>{location.state.snackBarMsg}</p>
-        </div> 
-      </div> */}
       <div className={Style['form__wrapper']}>
         <form className={Style['form']} onSubmit={e => handleSubmit(e)}> 
           <div className={Style['form-input__container']}>

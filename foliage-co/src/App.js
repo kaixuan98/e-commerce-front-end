@@ -19,7 +19,7 @@ function App() {
       <div className="App">
         <Routes>
           {/* Public Path */}
-          <Route path="/" element={<Home/>} exact ></Route>
+          <Route path="/" element={<Home/>}></Route>
           <Route path="/shop" element={<Shop/>}></Route>
           <Route path="/blog" element={<Blog/>}></Route>
           <Route path="/login" element={<Login/>}></Route> 

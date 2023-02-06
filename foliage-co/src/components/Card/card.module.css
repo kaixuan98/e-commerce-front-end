@@ -1,0 +1,35 @@
+.card__container{
+    background-color: #F8FAF9;
+    border-radius: 5px;
+    width: 200px;
+    display: grid;
+    grid-template-rows: 200px 150px; 
+}
+.card__image{
+    width: 100%; 
+    grid-row: 1/2; 
+}
+
+.card__image > img {
+    width: 200px;
+    height: 200px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.card__content{
+    grid-row: 2/3;
+}
+
+.card__name{
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 1.2em;
+    width: auto;
+    margin: 16px 8px 16px 8px;
+}
+
+.card__price{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1em;
+    margin: 16px 8px 16px 8px;
+}
