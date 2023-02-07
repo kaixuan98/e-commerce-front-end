@@ -1,0 +1,33 @@
+.accoridan__container{
+    display: flex;
+    flex-direction: column;
+}
+
+.accordian__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.accordian__title > p {
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.5em;
+}
+
+.accordian__content--show{
+    display: block;
+}
+.accordian__content--hide{
+    display: none;
+}
+
+.accordian__content-title{
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0;
+}
+.accordian__content-paragraph{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1em;
+}

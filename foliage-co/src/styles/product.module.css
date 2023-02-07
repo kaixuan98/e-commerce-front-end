@@ -1,0 +1,49 @@
+.product__page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.product__image > img{
+    width: 500px;
+    height: 600px;
+}
+
+.product__name{
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 2em;
+}
+
+.product__descrb{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1em ;
+}
+
+.product__price{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.5em ;
+    font-weight: 500; 
+}
+
+.seperation-line{
+    height: 2px;
+    background-color: black;
+}
+
+/* button group with quantity and add to bag */
+.button-group{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.quantity__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.quantity{
+    margin: 12px;
+}
