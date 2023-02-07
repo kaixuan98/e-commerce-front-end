@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 import { NavBar } from '../components/NavBar/NavBar'
 import Style from '../styles/shop.module.css'
@@ -25,7 +26,7 @@ const Shop = () => {
         <div className={Style['catalog__container']}>
           <div className={Style['catalog']}>
             {
-              products.map( plant => <Card product={plant}/>)
+              products.map( plant => <Link to={`/shop/${plant._id}`} key={plant._id}><Card product={plant}/></Link>)
             }
           </div>
         </div>

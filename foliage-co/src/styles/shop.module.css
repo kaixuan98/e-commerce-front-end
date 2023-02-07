@@ -10,3 +10,10 @@
     gap: 3em;
     justify-content: space-around;
 }
+
+.catalog > a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #3A443f;
+}
+

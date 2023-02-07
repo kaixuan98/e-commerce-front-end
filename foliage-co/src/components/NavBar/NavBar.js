@@ -45,7 +45,7 @@ export const NavBar = () => {
                         }
                     >Shop</NavLink>
                 </li>
-                <li>
+                {/* <li>
                     <NavLink 
                         to="/blog" 
                         className={Styles['navbar__link']}
@@ -53,7 +53,7 @@ export const NavBar = () => {
                             isActive ? linkActiveStyle : undefined
                         }
                         >Blog</NavLink>
-                </li>
+                </li> */}
             </ul>
 
 
