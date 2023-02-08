@@ -17,3 +17,10 @@
     color: #3A443f;
 }
 
+.loader__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
