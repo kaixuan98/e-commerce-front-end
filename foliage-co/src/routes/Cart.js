@@ -15,7 +15,7 @@ const Cart = () => {
         mode: 'cors', 
         headers: { Authorization: "Bearer "+ token}
       }).then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setCart(data))
     }
     getCart();
   }, [token])
@@ -25,8 +25,10 @@ const Cart = () => {
     <>
       <NavBar></NavBar>
       <h1>Your Shopping Bag</h1>
-      {/* {cart.message? (<p>{cart.message}</p>):(
-        console.log(cart.items) )} */}
+      {cart.message? 
+        (<p>{cart.message}</p>):
+        (cart.items.map( item => <p>{item.name}</p>))
+      }
     </>
   )
 }

@@ -1,20 +1,22 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import { NavBar } from '../components/NavBar/NavBar';
 import Style from '../styles/product.module.css';
 import AccordianStyle from '../components/Accordian/accordian.module.css';
 import ButtonStyle from '../components/Button/button.module.css';
 import { useAuth } from '../hooks/AuthProvider';
+import SnackbarContext from '../hooks/SnackBarContext';
+import SnackBar from '../components/SnackBar/index'
 
 
 const Product = () => {
     let params = useParams(); 
     let {token} = useAuth(); 
+    const snackbarCtx = useContext(SnackbarContext); 
 
     const [plant, setPlant] = useState({}); 
     const [isActive, setActive] = useState(false); 
     const [quantity, setQuantity] = useState(1);
-
     const fetchPlant = () => {
         fetch( `http://localhost:8080/items/${params.id}`)
             .then(res => res.json())
@@ -35,6 +37,10 @@ const Product = () => {
         setQuantity(quantity + 1); 
     }
 
+    const triggerSnackbar = (msg, type) => {
+        snackbarCtx.displayMsg(msg, type);
+    }
+
     const addToBag = () => {
         fetch("http://localhost:8080/cart", {
             method: 'POST',
@@ -48,8 +54,20 @@ const Product = () => {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => res.json())
-            .then(data => console.log(data));
+            .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+                return Promise.reject(res);
+            })
+            .then(data => triggerSnackbar("Added to Bag!","Success"))
+            .catch( (error) => {
+                if(error.status === 401){
+                    error.json().then( () => triggerSnackbar("Please login before adding into shopping bag.", "Error"))
+                }else{
+                    error.json().then( () => triggerSnackbar("Somthing went wrong.", "Error"))
+                }
+            })
     }
 
     useEffect(() => {
@@ -92,10 +110,7 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+            {snackbarCtx.isDisplayed && <SnackBar/>}
         </>
     )
 }

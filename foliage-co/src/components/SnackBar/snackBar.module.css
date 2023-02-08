@@ -1,0 +1,54 @@
+/* Snackbar.css */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.snackbar__container {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px; 
+    animation: 300ms ease-out forwards slide-up;
+    border-radius: 3px;
+}
+
+.snackbar__label{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.2em;
+}
+
+.snackbar__container--Success{
+    background-color: #4caf50;
+}
+.snackbar__container--Success > .snackbar__label{
+    color: #fff; 
+}
+
+.snackbar__container--Error{
+    background-color: #ef5350;
+}
+
+.snackbar__container--Error > .snackbar__label{
+    color: #fff; 
+}
+
+.snackbar__container--Warning{
+    background-color: #ff9800;
+}
+
+.snackbar__container--Warning > .snackbar__label{
+    color: #fff; 
+}
+
+.snackbar__dismiss{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.2em;
+    color: #fff;
+}
