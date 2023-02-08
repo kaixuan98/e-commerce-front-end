@@ -10,6 +10,7 @@ import AuthProvider from './hooks/AuthProvider';
 import ProtectedRoute from './hooks/ProtectedRoute';
 import Admin from './routes/Admin';
 import Product from './routes/Product';
+import Cart from './routes/Cart';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
           {/* Protected Path  */}
           <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route> 
           <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}></Route> 
+          <Route path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>}></Route> 
+
         </Routes>
       </div>
     </AuthProvider>

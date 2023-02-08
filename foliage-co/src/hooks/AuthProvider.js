@@ -55,6 +55,8 @@ const AuthProvider = ( {children}) => {
         .then( res => res.json())
         .then(data => {
             navigate('/login', {state: {snackBarMsg: data.message}});
+            setUser(null);
+            setToken(null);
         });
     }
 
@@ -66,8 +68,10 @@ const AuthProvider = ( {children}) => {
             headers: { "Authorization": "Bearer "+ token}
         })
         .then( res => res.json())
-        .then(data => {
+        .then( data => {
             navigate('/login', {state: {snackBarMsg: data.message}});
+            setUser(null);
+            setToken(null);
         });
     }
 

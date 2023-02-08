@@ -3,10 +3,12 @@ import { Logo } from '../Logo/Logo';
 import Styles from '../NavBar/navstyles.module.css';
 import { MdOutlinePermIdentity , MdOutlineShoppingBag, MdMenu, MdClose} from "react-icons/md";
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../../hooks/AuthProvider';
 
 export const NavBar = () => {
 
     const [isToggle, setToggle] = useState(false); 
+    const {user} = useAuth();
 
     let linkActiveStyle = {
         color: "#418267",
@@ -60,7 +62,7 @@ export const NavBar = () => {
             <ul className={Styles['navbar__list--end']}>
                 <li>
                     <NavLink 
-                        to="/login"
+                        to={!user? "/login": "/profile"}
                         style={({ isActive }) =>
                             isActive ? iconLinkActiveStyle : undefined
                         }
@@ -69,7 +71,7 @@ export const NavBar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/profile" 
+                    <NavLink to="/cart" 
                         style={({ isActive }) =>
                             isActive ? iconLinkActiveStyle : undefined
                         }

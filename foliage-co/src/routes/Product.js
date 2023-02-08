@@ -4,10 +4,12 @@ import { NavBar } from '../components/NavBar/NavBar';
 import Style from '../styles/product.module.css';
 import AccordianStyle from '../components/Accordian/accordian.module.css';
 import ButtonStyle from '../components/Button/button.module.css';
+import { useAuth } from '../hooks/AuthProvider';
 
 
 const Product = () => {
     let params = useParams(); 
+    let {token} = useAuth(); 
 
     const [plant, setPlant] = useState({}); 
     const [isActive, setActive] = useState(false); 
@@ -34,7 +36,20 @@ const Product = () => {
     }
 
     const addToBag = () => {
-        console.log(params.id + ": " + quantity);
+        fetch("http://localhost:8080/cart", {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                itemId: params.id,
+                quantity : quantity
+            }),
+            headers: {
+                "Authorization": "Bearer "+ token,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
     }
 
     useEffect(() => {

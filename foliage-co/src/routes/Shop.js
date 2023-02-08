@@ -8,12 +8,14 @@ const Shop = () => {
 
   const [products, setProducts] = useState([]);
 
-  const fetchPlants = () => {
-    fetch('http://localhost:8080/items')
-      .then(res => res.json())
-      .then(data => setProducts(data));
-  }
   useEffect(() => {
+
+    const fetchPlants = () => {
+      fetch('http://localhost:8080/items')
+        .then(res => res.json())
+        .then(data => setProducts(data));
+    }
+    
     fetchPlants()
   }, [])
 
