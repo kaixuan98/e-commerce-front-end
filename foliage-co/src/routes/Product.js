@@ -18,7 +18,7 @@ const Product = () => {
     const [isActive, setActive] = useState(false); 
     const [quantity, setQuantity] = useState(1);
     const fetchPlant = () => {
-        fetch( `http://localhost:8080/items/${params.id}`)
+        fetch( `http://localhost:8080/item/${params.id}`)
             .then(res => res.json())
             .then(data => setPlant(data));
     }
