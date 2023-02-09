@@ -27,10 +27,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className={Style["bestseller-section__container"]}>
+        {/* <div className={Style["bestseller-section__container"]}>
           <h3>BestSeller</h3>
           <div className={Style["bestseller-section__cards-container"]}></div>
-        </div>
+        </div> */}
 
         <div className={`${Style['campaign-section__container']} ${Style['campaign-section__container--bg']} ${Style['campaign-section__container--fullWidth']}`}>
           <img src={campaignImg1} alt="planting tree" width={300}></img>
