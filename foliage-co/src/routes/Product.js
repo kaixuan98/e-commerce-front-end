@@ -4,15 +4,15 @@ import { NavBar } from '../components/NavBar/NavBar';
 import Style from '../styles/product.module.css';
 import AccordianStyle from '../components/Accordian/accordian.module.css';
 import ButtonStyle from '../components/Button/button.module.css';
-import { useAuth } from '../hooks/AuthProvider';
 import SnackbarContext from '../hooks/SnackBarContext';
 import SnackBar from '../components/SnackBar/index'
+import { CartContext } from '../hooks/CartContext';
 
 
 const Product = () => {
     let params = useParams(); 
-    let {token} = useAuth(); 
     const snackbarCtx = useContext(SnackbarContext); 
+    const {contextValue} = useContext(CartContext)
 
     const [plant, setPlant] = useState({}); 
     const [isActive, setActive] = useState(false); 
@@ -35,39 +35,6 @@ const Product = () => {
 
     const increament = () => {
         setQuantity(quantity + 1); 
-    }
-
-    const triggerSnackbar = (msg, type) => {
-        snackbarCtx.displayMsg(msg, type);
-    }
-
-    const addToBag = () => {
-        fetch("http://localhost:8080/cart", {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify({
-                itemId: params.id,
-                quantity : quantity
-            }),
-            headers: {
-                "Authorization": "Bearer "+ token,
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if(res.ok){
-                    return res.json();
-                }
-                return Promise.reject(res);
-            })
-            .then(data => triggerSnackbar("Added to Bag!","Success"))
-            .catch( (error) => {
-                if(error.status === 401){
-                    error.json().then( () => triggerSnackbar("Please login before adding into shopping bag.", "Error"))
-                }else{
-                    error.json().then( () => triggerSnackbar("Somthing went wrong.", "Error"))
-                }
-            })
     }
 
     useEffect(() => {
@@ -106,7 +73,7 @@ const Product = () => {
                             <p className={Style['quantity']}>{quantity}</p>
                             <button onClick={increament} className={ButtonStyle['button']}>+</button>
                         </div>
-                        <button className={ButtonStyle['button']} onClick={addToBag}>Add to Bag</button>
+                        <button className={ButtonStyle['button']} onClick={() => contextValue.addToBag(params.id, quantity)}>Add to Bag</button>
                     </div>
                 </div>
             </div>

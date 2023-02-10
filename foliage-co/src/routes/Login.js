@@ -1,12 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom';
 import { NavBar } from '../components/NavBar/NavBar';
 import Style from '../styles/login.module.css'
 import {useAuth} from '../hooks/AuthProvider';
 // import { useLocation } from 'react-router-dom';
+import SnackbarContext from '../hooks/SnackBarContext';
+import SnackBar from '../components/SnackBar';
 
 const Login = () => {
   const {onLogin} = useAuth();
+  const snackbarCtx = useContext(SnackbarContext);
   // const location = useLocation();
 
   const [form, setForm] = useState({
@@ -30,6 +33,10 @@ const Login = () => {
 
   const handleVisibility = (e) => {
     setVisibility(e.target.checked);
+  }
+
+  const triggerSnackbar = (msg, type) => {
+    snackbarCtx.displayMsg(msg, type); 
   }
 
   return (

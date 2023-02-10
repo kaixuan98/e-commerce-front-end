@@ -8,9 +8,13 @@ const Profile = () => {
     return (
         <div>
             <NavBar/>
-            <p>Welcome {user.name}</p>
-            <button onClick={onLogout}>LogOut</button>
-            <button onClick={onAllLogout}>LogOut All</button>
+            <div>
+                <h2>Your Profile</h2>
+                <p>Name: {user.name}</p>
+                <button onClick={onLogout}>LogOut</button>
+                <button onClick={onAllLogout}>LogOut All</button>
+            </div>
+
         </div>
 
     )

@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Logo } from '../Logo/Logo';
 import Styles from '../NavBar/navstyles.module.css';
 import { MdOutlinePermIdentity , MdOutlineShoppingBag, MdMenu, MdClose} from "react-icons/md";
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks/AuthProvider';
+import { CartContext } from '../../hooks/CartContext';
 
 export const NavBar = () => {
 
     const [isToggle, setToggle] = useState(false); 
-    const {user} = useAuth();
+    const {user,token} = useAuth();
+    const cartCtx = useContext(CartContext);
 
     let linkActiveStyle = {
         color: "#418267",

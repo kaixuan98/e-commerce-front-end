@@ -33,7 +33,12 @@ const AuthProvider = ( {children}) => {
             body: JSON.stringify(form),
             headers: {'Content-Type': 'application/json'}
         })
-        .then(res => res.json())
+        .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+                return Promise.reject(res);
+        })
         .then(data => {
             setToken(data.token);
             setUser(data.user);
@@ -42,7 +47,9 @@ const AuthProvider = ( {children}) => {
             }else{
                 navigate('/profile');
             }
-        });
+        }).catch( (error) => {
+            error.json().then( e => console.log(e))
+        })
     }
 
     const handleLogout = () => {

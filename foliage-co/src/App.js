@@ -12,6 +12,7 @@ import ProtectedRoute from './hooks/ProtectedRoute';
 import Admin from './routes/Admin';
 import Product from './routes/Product';
 import Cart from './routes/Cart';
+import CartProvider from './hooks/CartContext';
 
 
 function App() {
@@ -19,20 +20,22 @@ function App() {
   return (
     <SnackbarContextProvider>
       <AuthProvider>
-        <div className="App">
-          <Routes>
-            {/* Public Path */}
-            <Route path="/" element={<Home/>}></Route>
-            <Route path="/shop" element={<Shop/>}></Route>
-            <Route path="/login" element={<Login/>}></Route> 
-            <Route path="/register" element={<Register/>}></Route> 
-            <Route path="/shop/:id" element={<Product/>}></Route>
-            {/* Protected Path  */}
-            <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route> 
-            <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}></Route> 
-            <Route path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>}></Route> 
-          </Routes>
-        </div>
+        <CartProvider>
+          <div className="App">
+            <Routes>
+              {/* Public Path */}
+              <Route path="/" element={<Home/>}></Route>
+              <Route path="/shop" element={<Shop/>}></Route>
+              <Route path="/login" element={<Login/>}></Route> 
+              <Route path="/register" element={<Register/>}></Route> 
+              <Route path="/shop/:id" element={<Product/>}></Route>
+              {/* Protected Path  */}
+              <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route> 
+              <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}></Route> 
+              <Route path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>}></Route> 
+            </Routes>
+          </div>
+        </CartProvider>
       </AuthProvider>
     </SnackbarContextProvider>
   );

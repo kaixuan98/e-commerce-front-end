@@ -1,0 +1,47 @@
+.bag-card__product-details{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.bag-card__product{
+    grid-column: 1/11;
+    display: flex;
+    flex-direction: column;
+}
+
+.product__text--primary{
+    font-family: 'garamond-atf-micro', 'serif';
+    font-size: 1.2em;
+}
+
+.product__text--secondary{
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1em;
+    margin: 0 ;
+}
+
+
+.bag-card__quantity{
+    grid-column: 11/12;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30%;
+}
+
+.bag-card__quantity-input{
+    width: 100%;
+    font-family: 'futura-pt', 'sans-serif';
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid  #3A443f;
+}
+
+.bag-card__remove-container{
+    grid-column: 12/13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
