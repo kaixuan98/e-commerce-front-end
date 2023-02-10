@@ -52,14 +52,14 @@ export function CartProvider({children}){
 
     // add one item to the cart 
     function addOneToCart(itemId){
-        const quantity = getProductQty(itemId); 
+        let quantity = getProductQty(itemId); 
 
         fetch("http://localhost:8080/cart", {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
                 itemId,
-                quantity: quantity + 1, 
+                quantity: quantity + 1 , 
             }),
             headers: {
                 "Authorization": "Bearer "+ token,
@@ -114,7 +114,7 @@ export function CartProvider({children}){
     }
 
     function removeOneFromCart(itemId){
-        const quantity = getProductQty(itemId); 
+        let quantity = getProductQty(itemId); 
         
         if(quantity > 0){
             fetch("http://localhost:8080/cart", {
@@ -122,7 +122,7 @@ export function CartProvider({children}){
                 mode: 'cors',
                 body: JSON.stringify({
                     itemId,
-                    quantity: quantity - 1 , 
+                    quantity: quantity- 1  , 
                 }),
                 headers: {
                     "Authorization": "Bearer "+ token,
