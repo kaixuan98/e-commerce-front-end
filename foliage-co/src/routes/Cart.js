@@ -2,33 +2,53 @@ import React, {useContext} from 'react'
 import { NavBar } from '../components/NavBar/NavBar'
 import Loader from '../components/Loader/Loader';
 import Style from '../styles/cart.module.css';
-import SnackbarContext from '../hooks/SnackBarContext';
-import SnackBar from '../components/SnackBar/index'
 import BagCard from '../components/Card/BagCard';
 import { CartContext } from '../hooks/CartContext';
+import ButtonStyle from '../components/Button/button.module.css'
 
 
 const Cart = () => {
-  const snackbarCtx = useContext(SnackbarContext);
   const {contextValue, isLoading} = useContext(CartContext);  
-  
-  
+
+  const handleClick = () => {
+    contextValue.checkOut();
+  }
+
   return (
     <>
       <NavBar></NavBar>
       <h1 className={Style['page__title']}>Your Shopping Bag</h1>
-      { 
-        !isLoading? (
-          contextValue.items?.length > 0 ? (
-            contextValue.items.map( item => <BagCard key={item.itemId} item={item}/>)
+      <div className={Style['cart__wrapper']}>
+        <div className={Style['cart__container']}>
+          { 
+            !isLoading? (
+              contextValue.items?.length > 0 ? (
+                contextValue.items.map( item => <BagCard key={item.itemId} item={item}/>)
+              ):(
+                <p>Your Cart is Empty!</p>
+              )
+            ):(
+              <Loader/>
+            )
+          }
+        </div>
+        {
+          contextValue.items.length <= 0 ? (
+              <></>
           ):(
-            <p>Your Cart is Empty!</p>
+              <div className={Style['cart__billContainer']}>
+                  <p className={Style['bill__title']}>Total</p>
+                  {console.log(contextValue.bill)}
+                  <p className={Style['bill__total']}>$ {contextValue.bill}</p>
+                  <div className={ButtonStyle['button-group']}>
+                    <button className={ButtonStyle['button']} onClick={handleClick}>Checkout</button>
+                    <button className={`${ButtonStyle['button']} ${ButtonStyle['button--outline']}`}>Cancel</button>
+                  </div>
+              </div>
           )
-        ):(
-          <Loader/>
-        )
-      }
-      {snackbarCtx.isDisplayed && <SnackBar/>}
+        }
+
+      </div>
     </>
   )
 }

@@ -11,6 +11,7 @@ export const CartContext = createContext({
     removeOneFromCart: () => {},
     addToBag: () => {},
     deleteFromCart : () => {},
+    checkOut: () => {}
 });
 
 export function CartProvider({children}){
@@ -153,6 +154,23 @@ export function CartProvider({children}){
             })
     }
 
+    function checkOut(){
+        fetch('http://localhost:8080/order/checkout',{
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                "Authorization": "Bearer "+ token,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCartProducts([]);
+                setBill(0);
+                setIsLoading(false);
+            });
+    }
+
     const contextValue = {
         items: cartProducts,
         bill,
@@ -161,6 +179,7 @@ export function CartProvider({children}){
         removeOneFromCart,
         addToBag,
         deleteFromCart,
+        checkOut,
     }
 
     return (
