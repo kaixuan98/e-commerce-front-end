@@ -33,12 +33,11 @@ const Cart = () => {
           }
         </div>
         {
-          contextValue.items.length <= 0 ? (
+          contextValue.items === undefined ||contextValue.items?.length <= 0  ? (
               <></>
           ):(
               <div className={Style['cart__billContainer']}>
                   <p className={Style['bill__title']}>Total</p>
-                  {console.log(contextValue.bill)}
                   <p className={Style['bill__total']}>$ {contextValue.bill}</p>
                   <div className={ButtonStyle['button-group']}>
                     <button className={ButtonStyle['button']} onClick={handleClick}>Checkout</button>
