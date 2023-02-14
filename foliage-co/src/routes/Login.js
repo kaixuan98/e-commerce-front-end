@@ -35,10 +35,6 @@ const Login = () => {
     setVisibility(e.target.checked);
   }
 
-  const triggerSnackbar = (msg, type) => {
-    snackbarCtx.displayMsg(msg, type); 
-  }
-
   return (
     <>
       <NavBar/>
@@ -70,6 +66,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+      {snackbarCtx.isDisplayed && <SnackBar/>}
     </>
   )
 }

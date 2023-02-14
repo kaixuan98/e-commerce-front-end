@@ -25,7 +25,7 @@ export function CartProvider({children}){
 
     useEffect(() => {
         if(token){
-            fetch('http://localhost:8080/cart', {
+            fetch('http://15.223.3.11:8080/cart', {
                 method: 'GET', 
                 mode: 'cors', 
                 headers: { Authorization: "Bearer "+ token}
@@ -55,7 +55,7 @@ export function CartProvider({children}){
     function addOneToCart(itemId){
         let quantity = getProductQty(itemId); 
 
-        fetch("http://localhost:8080/cart", {
+        fetch("http://15.223.3.11:8080/cart", {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -81,7 +81,7 @@ export function CartProvider({children}){
         const triggerSnackbar = (msg, type) => {
             snackbarCtx.displayMsg(msg, type);
         }
-        fetch("http://localhost:8080/cart", {
+        fetch("http://15.223.3.11:8080/cart", {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -118,7 +118,7 @@ export function CartProvider({children}){
         let quantity = getProductQty(itemId); 
         
         if(quantity > 0){
-            fetch("http://localhost:8080/cart", {
+            fetch("http://15.223.3.11:8080/cart", {
                 method: 'POST',
                 mode: 'cors',
                 body: JSON.stringify({
@@ -141,7 +141,7 @@ export function CartProvider({children}){
     }
 
     function deleteFromCart(itemId) {
-        fetch(`http://localhost:8080/cart/?itemId=${itemId}`, {
+        fetch(`http://15.223.3.11:8080/cart/?itemId=${itemId}`, {
                 method: 'DELETE', 
                 mode: 'cors', 
                 headers: { Authorization: "Bearer "+ token}
@@ -155,7 +155,7 @@ export function CartProvider({children}){
     }
 
     function checkOut(){
-        fetch('http://localhost:8080/order/checkout',{
+        fetch('http://15.223.3.11:8080/order/checkout',{
             method: 'POST',
             mode: 'cors',
             headers: {

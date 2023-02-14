@@ -27,7 +27,7 @@ const Shop = () => {
   const filterPlants = (category) => {
     if(category === ''){
       setIsLoading(true);
-      fetch('http://localhost:8080/items')
+      fetch('http://15.223.3.11:8080/items')
         .then(res => res.json())
         .then(data => {
           setProducts(data);
@@ -35,7 +35,7 @@ const Shop = () => {
       });
     }else{
       setIsLoading(true);
-      fetch(`http://localhost:8080/items/${category}`)
+      fetch(`http://15.223.3.11:8080/items/${category}`)
         .then(res => res.json())
         .then(data => {
           setProducts(data);
@@ -48,7 +48,7 @@ const Shop = () => {
   useEffect(() => {
     setIsLoading(true);
     const fetchPlants = () => {
-      fetch('http://localhost:8080/items')
+      fetch('http://15.223.3.11:8080/items')
         .then(res => res.json())
         .then(data => {
           setProducts(data);
