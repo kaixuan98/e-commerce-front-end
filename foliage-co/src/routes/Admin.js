@@ -50,7 +50,7 @@ const Admin = () => {
         formData.append('price', form.price);
         formData.append('image', imageFile);
         
-        fetch('http://15.223.3.11:8080/items/create', {
+        fetch('https://15.223.3.11:8080/items/create', {
             method: 'POST', 
             mode: 'cors', 
             body: formData,
