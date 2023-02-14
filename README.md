@@ -1,4 +1,4 @@
-# e-commerce-front-end
+# Simple Ecommerce Site Project (Foliage)
 Front end e-commerce site for a plant / nursery site. (Foliage)
 
 The webapp is currently deployed with Vercel. The current website work best on dekstop size. The mobile size is currrently under development. 
