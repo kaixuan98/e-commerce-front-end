@@ -10,7 +10,7 @@ Front end e-commerce site for a plant / nursery site. (Foliage)
 
 #### The demo video of the app: 
 
-[Demo Video](https://youtu.be/WmlTj3LQEnw)
+[![Demo Video](http://img.youtube.com/vi/WmlTj3LQEnw/0.jpg)](https://youtu.be/WmlTj3LQEnw)
 
 #### How to run this app?
 1. Fork this repo 
@@ -24,4 +24,4 @@ Front end e-commerce site for a plant / nursery site. (Foliage)
 
 ##### *Copyrights*
 
-*All the images are source from Google, and this website is used for personal educational purposes and will not be commercialise. If any infringment of copyright, please [email me](mailto:averychin7@gmail.com) with the subject "Copyrights Infringment - Request to take down Images", I am happy to take down the images.*
+*All the images are source from Google and Unsplash, and this website is used for personal educational purposes and will not be commercialise. If any infringment of copyright, please [email me](mailto:averychin7@gmail.com) with the subject "Copyrights Infringment - Request to take down Images", I am happy to take down the images.*
