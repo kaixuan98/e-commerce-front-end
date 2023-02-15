@@ -9,7 +9,7 @@ const Profile = () => {
     const [orders, setOrders] = useState([]); 
 
     useEffect(() => {
-        fetch('https://15.223.3.11:8080/orders', {
+        fetch('http://15.223.3.11/orders', {
             method: 'GET', 
             mode: 'cors', 
             headers: { Authorization: "Bearer "+ token}

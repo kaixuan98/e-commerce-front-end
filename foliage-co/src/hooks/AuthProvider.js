@@ -19,7 +19,7 @@ const AuthProvider = ( {children}) => {
         const triggerSnackbar = (msg, type) => {
             snackbarCtx.displayMsg(msg, type);
         }
-        fetch('https://15.223.3.11:8080/users/register', {  
+        fetch('http://15.223.3.11/users/register', {  
             method: 'POST', 
             mode: 'cors', 
             body: JSON.stringify(form),
@@ -45,7 +45,7 @@ const AuthProvider = ( {children}) => {
             snackbarCtx.displayMsg(msg, type);
         }
 
-        fetch('https://15.223.3.11:8080/users/login', {  
+        fetch('http://15.223.3.11/users/login', {  
             method: 'POST', 
             mode: 'cors', 
             body: JSON.stringify(form),
@@ -71,7 +71,7 @@ const AuthProvider = ( {children}) => {
     }
 
     const handleLogout = () => {
-        fetch('https://15.223.3.11:8080/users/logout', {
+        fetch('http://15.223.3.11/users/logout', {
             method: 'POST', 
             mode: 'cors', 
             body: '',
@@ -86,7 +86,7 @@ const AuthProvider = ( {children}) => {
     }
 
     const handleAllLogout = () => {
-        fetch('https://15.223.3.11:8080/users/logoutAll', {
+        fetch('http://15.223.3.11/users/logoutAll', {
             method: 'POST', 
             mode: 'cors', 
             body: '',
